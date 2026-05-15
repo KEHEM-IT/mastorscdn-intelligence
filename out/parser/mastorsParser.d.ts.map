@@ -1,0 +1,1 @@
+{"version":3,"file":"mastorsParser.d.ts","sourceRoot":"","sources":["../../src/parser/mastorsParser.ts"],"names":[],"mappings":"AAeA,OAAO,KAAK,EAAE,aAAa,EAAiC,MAAM,6BAA6B,CAAC;AA8MhG,qBAAa,aAAa;IACxB;;;;OAIG;IACG,eAAe,CAAC,QAAQ,EAAE,MAAM,GAAG,OAAO,CAAC,aAAa,EAAE,CAAC;IAgEjE,OAAO,CAAC,cAAc;IAwBtB;;;OAGG;IACH,OAAO,CAAC,sBAAsB;CAqC/B"}

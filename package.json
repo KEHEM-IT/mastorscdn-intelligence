@@ -1,0 +1,141 @@
+{
+  "name": "mastors-cdn-core-intellisense",
+  "displayName": "Mastors CDN Core IntelliSense",
+  "description": "Intelligent SCSS/SASS autocomplete, hover docs, and parameter hints for @mastorscdn/core utility library",
+  "version": "1.0.0",
+  "publisher": "mastorscdn",
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KEHEM-IT/mastorscdn-intelligence.git"
+  },
+  "homepage": "https://github.com/KEHEM-IT/mastorscdn-intelligence",
+  "bugs": {
+    "url": "https://github.com/KEHEM-IT/mastorscdn-intelligence/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "scss",
+    "sass",
+    "mastors",
+    "mastorscdn",
+    "intellisense",
+    "autocomplete",
+    "design tokens"
+  ],
+  "activationEvents": [
+    "onLanguage:scss",
+    "onLanguage:sass",
+    "onLanguage:css",
+    "workspaceContains:**/*.scss",
+    "workspaceContains:**/*.sass",
+    "workspaceContains:**/*.css"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Mastors CDN IntelliSense",
+      "properties": {
+        "mastorsIntellisense.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Mastors CDN IntelliSense"
+        },
+        "mastorsIntellisense.corePackagePath": {
+          "type": "string",
+          "default": "",
+          "description": "Custom path to @mastorscdn/core SCSS root (leave empty to auto-detect from node_modules or workspace)"
+        },
+        "mastorsIntellisense.showParameterHints": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show parameter hints for Mastors functions"
+        },
+        "mastorsIntellisense.enableFuzzySearch": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable fuzzy search in completions"
+        },
+        "mastorsIntellisense.cacheEnabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Cache the parsed registry to disk for faster startup"
+        },
+        "mastorsIntellisense.debugLogging": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable debug-level logging in the Mastors IntelliSense output channel"
+        },
+        "mastorsIntellisense.scanWorkspacePath": {
+          "type": "string",
+          "default": "",
+          "description": "Additional absolute path to scan for Mastors Core SCSS files (useful for monorepos)"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "mastorsIntellisense.refreshRegistry",
+        "title": "Mastors: Refresh Function Registry"
+      },
+      {
+        "command": "mastorsIntellisense.showRegistry",
+        "title": "Mastors: Show Registry"
+      },
+      {
+        "command": "mastorsIntellisense.clearCache",
+        "title": "Mastors: Clear Cache"
+      },
+      {
+        "command": "mastorsIntellisense.generateRegistry",
+        "title": "Mastors: Generate Registry JSON"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "mastorsIntellisense.refreshRegistry",
+          "when": "editorLangId == scss || editorLangId == sass"
+        },
+        {
+          "command": "mastorsIntellisense.showRegistry"
+        },
+        {
+          "command": "mastorsIntellisense.clearCache"
+        },
+        {
+          "command": "mastorsIntellisense.generateRegistry"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext .ts",
+    "package": "vsce package",
+    "generate-registry": "ts-node scripts/generateRegistry.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "@vscode/vsce": "^2.24.0"
+  },
+  "dependencies": {
+    "fuse.js": "^7.0.0"
+  }
+}
