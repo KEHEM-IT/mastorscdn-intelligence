@@ -1,6 +1,6 @@
 "use strict";
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // extension.ts — Activation entry point
 // =============================================================================
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
@@ -47,7 +47,7 @@ const signatureHelpProvider_1 = require("./providers/signatureHelpProvider");
 const logger_1 = require("./utils/logger");
 // Singleton registry — shared across all providers
 let registry;
-/** Language selectors that Mastors IntelliSense activates on */
+/** Language selectors that Mastors intelligence activates on */
 const LANG_SELECTORS = [
     { language: 'scss', scheme: 'file' },
     { language: 'sass', scheme: 'file' },
@@ -57,18 +57,18 @@ const LANG_SELECTORS = [
     { language: 'sass', scheme: 'untitled' },
 ];
 async function activate(context) {
-    const config = vscode.workspace.getConfiguration('mastorsIntellisense');
+    const config = vscode.workspace.getConfiguration('mastorsintelligence');
     if (!config.get('enable', true)) {
-        logger_1.Logger.info('Mastors IntelliSense is disabled via configuration.');
+        logger_1.Logger.info('Mastors intelligence is disabled via configuration.');
         return;
     }
-    logger_1.Logger.info('Mastors CDN Core IntelliSense activating...');
+    logger_1.Logger.info('Mastors CDN Core intelligence activating...');
     // ── 1. Initialise registry (lazy, cached) ────────────────────────────────
     registry = new mastorsRegistry_1.MastorsRegistry(context);
     // Initialise in background — providers degrade gracefully during load
     registry.initialise().then(() => {
         logger_1.Logger.info(`Registry loaded: ${registry.size()} entries.`);
-        vscode.window.setStatusBarMessage('$(zap) Mastors IntelliSense ready', 3000);
+        vscode.window.setStatusBarMessage('$(zap) Mastors intelligence ready', 3000);
     }).catch((err) => {
         logger_1.Logger.error('Registry initialisation failed', err);
     });
@@ -93,7 +93,7 @@ async function activate(context) {
     ',' // retrigger on comma
     );
     // ── 5. Commands ───────────────────────────────────────────────────────────
-    const refreshCommand = vscode.commands.registerCommand('mastorsIntellisense.refreshRegistry', async () => {
+    const refreshCommand = vscode.commands.registerCommand('mastorsintelligence.refreshRegistry', async () => {
         vscode.window.withProgress({
             location: vscode.ProgressLocation.Notification,
             title: 'Mastors: Refreshing registry...',
@@ -103,7 +103,7 @@ async function activate(context) {
             vscode.window.showInformationMessage(`✅ Mastors registry refreshed (${registry?.size()} entries).`);
         });
     });
-    const showRegistryCommand = vscode.commands.registerCommand('mastorsIntellisense.showRegistry', async () => {
+    const showRegistryCommand = vscode.commands.registerCommand('mastorsintelligence.showRegistry', async () => {
         const entries = registry?.getAllEntries() ?? [];
         if (entries.length === 0) {
             vscode.window.showWarningMessage('Mastors registry is empty or not yet loaded.');
@@ -128,11 +128,11 @@ async function activate(context) {
             }
         }
     });
-    const clearCacheCommand = vscode.commands.registerCommand('mastorsIntellisense.clearCache', async () => {
+    const clearCacheCommand = vscode.commands.registerCommand('mastorsintelligence.clearCache', async () => {
         await registry?.clearCache();
         vscode.window.showInformationMessage('🗑️ Mastors cache cleared.');
     });
-    const generateRegistryCommand = vscode.commands.registerCommand('mastorsIntellisense.generateRegistry', async () => {
+    const generateRegistryCommand = vscode.commands.registerCommand('mastorsintelligence.generateRegistry', async () => {
         vscode.window.withProgress({
             location: vscode.ProgressLocation.Notification,
             title: 'Mastors: Generating registry JSON...',
@@ -159,19 +159,19 @@ async function activate(context) {
     watcher.onDidCreate(() => registry?.invalidateAlias());
     // ── 7. Configuration change handler ──────────────────────────────────────
     const configWatcher = vscode.workspace.onDidChangeConfiguration((e) => {
-        if (e.affectsConfiguration('mastorsIntellisense')) {
+        if (e.affectsConfiguration('mastorsintelligence')) {
             logger_1.Logger.info('Configuration changed — refreshing registry...');
             registry?.refresh().catch((err) => logger_1.Logger.error('Refresh failed', err));
         }
     });
     // ── 8. Dispose on deactivation ───────────────────────────────────────────
     context.subscriptions.push(completionDisposable, hoverDisposable, signatureDisposable, refreshCommand, showRegistryCommand, clearCacheCommand, generateRegistryCommand, watcher, configWatcher);
-    logger_1.Logger.info('Mastors CDN Core IntelliSense activation complete.');
+    logger_1.Logger.info('Mastors CDN Core intelligence activation complete.');
 }
 function deactivate() {
     registry = undefined;
     logger_1.Logger.dispose();
-    logger_1.Logger.info('Mastors CDN Core IntelliSense deactivated.');
+    logger_1.Logger.info('Mastors CDN Core intelligence deactivated.');
 }
 // ── Webview helper ─────────────────────────────────────────────────────────
 function showEntryWebview(context, entry) {

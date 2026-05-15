@@ -1,5 +1,5 @@
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // parser/mastorsParser.ts
 //
 // Parses @mastorscdn/core SCSS source files and extracts:

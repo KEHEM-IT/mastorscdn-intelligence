@@ -1,5 +1,5 @@
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // providers/scssCompletionProvider.ts
 //
 // Implements vscode.CompletionItemProvider for SCSS/SASS files.
@@ -60,7 +60,7 @@ export class ScssCompletionProvider implements vscode.CompletionItemProvider {
 
     // Resolve the alias used in this file (e.g. 'mc', 'mcore')
     const alias = this._registry.resolveAlias(document.getText());
-    const cfg = vscode.workspace.getConfiguration('mastorsIntellisense');
+    const cfg = vscode.workspace.getConfiguration('mastorsintelligence');
     const fuzzy = cfg.get<boolean>('enableFuzzySearch', true);
 
     // ── Case 1: mc.functionName('|') — value completions ─────────────────

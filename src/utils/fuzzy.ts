@@ -1,5 +1,5 @@
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // utils/fuzzy.ts — Lightweight fuzzy matching (wraps Fuse.js)
 // =============================================================================
 

@@ -1,6 +1,6 @@
 "use strict";
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // utils/fuzzy.ts — Lightweight fuzzy matching (wraps Fuse.js)
 // =============================================================================
 var __importDefault = (this && this.__importDefault) || function (mod) {

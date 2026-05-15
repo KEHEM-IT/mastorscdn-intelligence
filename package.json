@@ -1,6 +1,6 @@
 {
-  "name": "mastors-cdn-core-intellisense",
-  "displayName": "Mastors CDN Core IntelliSense",
+  "name": "mastors-cdn-core-intelligence",
+  "displayName": "Mastors CDN Core intelligence",
   "description": "Intelligent SCSS/SASS autocomplete, hover docs, and parameter hints for @mastorscdn/core utility library",
   "version": "1.0.0",
   "publisher": "mastorscdn",
@@ -27,7 +27,7 @@
     "sass",
     "mastors",
     "mastorscdn",
-    "intellisense",
+    "intelligence",
     "autocomplete",
     "design tokens"
   ],
@@ -42,39 +42,39 @@
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
-      "title": "Mastors CDN IntelliSense",
+      "title": "Mastors CDN intelligence",
       "properties": {
-        "mastorsIntellisense.enable": {
+        "mastorsintelligence.enable": {
           "type": "boolean",
           "default": true,
-          "description": "Enable Mastors CDN IntelliSense"
+          "description": "Enable Mastors CDN intelligence"
         },
-        "mastorsIntellisense.corePackagePath": {
+        "mastorsintelligence.corePackagePath": {
           "type": "string",
           "default": "",
           "description": "Custom path to @mastorscdn/core SCSS root (leave empty to auto-detect from node_modules or workspace)"
         },
-        "mastorsIntellisense.showParameterHints": {
+        "mastorsintelligence.showParameterHints": {
           "type": "boolean",
           "default": true,
           "description": "Show parameter hints for Mastors functions"
         },
-        "mastorsIntellisense.enableFuzzySearch": {
+        "mastorsintelligence.enableFuzzySearch": {
           "type": "boolean",
           "default": true,
           "description": "Enable fuzzy search in completions"
         },
-        "mastorsIntellisense.cacheEnabled": {
+        "mastorsintelligence.cacheEnabled": {
           "type": "boolean",
           "default": true,
           "description": "Cache the parsed registry to disk for faster startup"
         },
-        "mastorsIntellisense.debugLogging": {
+        "mastorsintelligence.debugLogging": {
           "type": "boolean",
           "default": false,
-          "description": "Enable debug-level logging in the Mastors IntelliSense output channel"
+          "description": "Enable debug-level logging in the Mastors intelligence output channel"
         },
-        "mastorsIntellisense.scanWorkspacePath": {
+        "mastorsintelligence.scanWorkspacePath": {
           "type": "string",
           "default": "",
           "description": "Additional absolute path to scan for Mastors Core SCSS files (useful for monorepos)"
@@ -83,36 +83,36 @@
     },
     "commands": [
       {
-        "command": "mastorsIntellisense.refreshRegistry",
+        "command": "mastorsintelligence.refreshRegistry",
         "title": "Mastors: Refresh Function Registry"
       },
       {
-        "command": "mastorsIntellisense.showRegistry",
+        "command": "mastorsintelligence.showRegistry",
         "title": "Mastors: Show Registry"
       },
       {
-        "command": "mastorsIntellisense.clearCache",
+        "command": "mastorsintelligence.clearCache",
         "title": "Mastors: Clear Cache"
       },
       {
-        "command": "mastorsIntellisense.generateRegistry",
+        "command": "mastorsintelligence.generateRegistry",
         "title": "Mastors: Generate Registry JSON"
       }
     ],
     "menus": {
       "commandPalette": [
         {
-          "command": "mastorsIntellisense.refreshRegistry",
+          "command": "mastorsintelligence.refreshRegistry",
           "when": "editorLangId == scss || editorLangId == sass"
         },
         {
-          "command": "mastorsIntellisense.showRegistry"
+          "command": "mastorsintelligence.showRegistry"
         },
         {
-          "command": "mastorsIntellisense.clearCache"
+          "command": "mastorsintelligence.clearCache"
         },
         {
-          "command": "mastorsIntellisense.generateRegistry"
+          "command": "mastorsintelligence.generateRegistry"
         }
       ]
     }

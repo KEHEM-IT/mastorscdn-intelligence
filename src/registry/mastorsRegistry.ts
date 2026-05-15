@@ -1,5 +1,5 @@
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // registry/mastorsRegistry.ts -- Central data store + cache manager
 // =============================================================================
 
@@ -91,7 +91,7 @@ export class MastorsRegistry {
     this._initialising = true;
 
     try {
-      const config = vscode.workspace.getConfiguration('mastorsIntellisense');
+      const config = vscode.workspace.getConfiguration('mastorsintelligence');
       const useCache = config.get<boolean>('cacheEnabled', true);
 
       // 1. Try loading from disk cache first (fast path)
@@ -222,7 +222,7 @@ export class MastorsRegistry {
 
     this._populateMap(entries);
 
-    const config = vscode.workspace.getConfiguration('mastorsIntellisense');
+    const config = vscode.workspace.getConfiguration('mastorsintelligence');
     if (config.get<boolean>('cacheEnabled', true)) {
       await this._saveCache(entries);
     }
@@ -238,7 +238,7 @@ export class MastorsRegistry {
   }
 
   private _resolveCorePath(): string | null {
-    const config = vscode.workspace.getConfiguration('mastorsIntellisense');
+    const config = vscode.workspace.getConfiguration('mastorsintelligence');
 
     // 1. Custom override
     const customPath = config.get<string>('corePackagePath', '').trim();

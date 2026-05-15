@@ -1,5 +1,5 @@
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // utils/logger.ts — Structured output channel logger
 // =============================================================================
 
@@ -9,7 +9,7 @@ let _channel: vscode.OutputChannel | undefined;
 
 function channel(): vscode.OutputChannel {
   if (!_channel) {
-    _channel = vscode.window.createOutputChannel('Mastors IntelliSense');
+    _channel = vscode.window.createOutputChannel('Mastors intelligence');
   }
   return _channel;
 }
@@ -32,7 +32,7 @@ export const Logger = {
     }
   },
   debug(msg: string): void {
-    const cfg = vscode.workspace.getConfiguration('mastorsIntellisense');
+    const cfg = vscode.workspace.getConfiguration('mastorsintelligence');
     if (cfg.get<boolean>('debugLogging', false)) {
       channel().appendLine(`[${timestamp()}] DEBUG ${msg}`);
     }

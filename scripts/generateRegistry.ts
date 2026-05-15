@@ -1,6 +1,6 @@
 #!/usr/bin/env ts-node
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // scripts/generateRegistry.ts
 //
 // Standalone script that:

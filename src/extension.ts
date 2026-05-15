@@ -1,5 +1,5 @@
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // extension.ts — Activation entry point
 // =============================================================================
 
@@ -13,7 +13,7 @@ import { Logger } from './utils/logger';
 // Singleton registry — shared across all providers
 let registry: MastorsRegistry | undefined;
 
-/** Language selectors that Mastors IntelliSense activates on */
+/** Language selectors that Mastors intelligence activates on */
 const LANG_SELECTORS: vscode.DocumentSelector = [
   { language: 'scss', scheme: 'file' },
   { language: 'sass', scheme: 'file' },
@@ -24,14 +24,14 @@ const LANG_SELECTORS: vscode.DocumentSelector = [
 ];
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
-  const config = vscode.workspace.getConfiguration('mastorsIntellisense');
+  const config = vscode.workspace.getConfiguration('mastorsintelligence');
 
   if (!config.get<boolean>('enable', true)) {
-    Logger.info('Mastors IntelliSense is disabled via configuration.');
+    Logger.info('Mastors intelligence is disabled via configuration.');
     return;
   }
 
-  Logger.info('Mastors CDN Core IntelliSense activating...');
+  Logger.info('Mastors CDN Core intelligence activating...');
 
   // ── 1. Initialise registry (lazy, cached) ────────────────────────────────
   registry = new MastorsRegistry(context);
@@ -39,7 +39,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   // Initialise in background — providers degrade gracefully during load
   registry.initialise().then(() => {
     Logger.info(`Registry loaded: ${registry!.size()} entries.`);
-    vscode.window.setStatusBarMessage('$(zap) Mastors IntelliSense ready', 3000);
+    vscode.window.setStatusBarMessage('$(zap) Mastors intelligence ready', 3000);
   }).catch((err: unknown) => {
     Logger.error('Registry initialisation failed', err);
   });
@@ -78,7 +78,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 
   // ── 5. Commands ───────────────────────────────────────────────────────────
   const refreshCommand = vscode.commands.registerCommand(
-    'mastorsIntellisense.refreshRegistry',
+    'mastorsintelligence.refreshRegistry',
     async () => {
       vscode.window.withProgress(
         {
@@ -97,7 +97,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   );
 
   const showRegistryCommand = vscode.commands.registerCommand(
-    'mastorsIntellisense.showRegistry',
+    'mastorsintelligence.showRegistry',
     async () => {
       const entries = registry?.getAllEntries() ?? [];
       if (entries.length === 0) {
@@ -126,7 +126,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   );
 
   const clearCacheCommand = vscode.commands.registerCommand(
-    'mastorsIntellisense.clearCache',
+    'mastorsintelligence.clearCache',
     async () => {
       await registry?.clearCache();
       vscode.window.showInformationMessage('🗑️ Mastors cache cleared.');
@@ -134,7 +134,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
   );
 
   const generateRegistryCommand = vscode.commands.registerCommand(
-    'mastorsIntellisense.generateRegistry',
+    'mastorsintelligence.generateRegistry',
     async () => {
       vscode.window.withProgress(
         {
@@ -170,7 +170,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 
   // ── 7. Configuration change handler ──────────────────────────────────────
   const configWatcher = vscode.workspace.onDidChangeConfiguration((e) => {
-    if (e.affectsConfiguration('mastorsIntellisense')) {
+    if (e.affectsConfiguration('mastorsintelligence')) {
       Logger.info('Configuration changed — refreshing registry...');
       registry?.refresh().catch((err: unknown) => Logger.error('Refresh failed', err));
     }
@@ -189,13 +189,13 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
     configWatcher
   );
 
-  Logger.info('Mastors CDN Core IntelliSense activation complete.');
+  Logger.info('Mastors CDN Core intelligence activation complete.');
 }
 
 export function deactivate(): void {
   registry = undefined;
   Logger.dispose();
-  Logger.info('Mastors CDN Core IntelliSense deactivated.');
+  Logger.info('Mastors CDN Core intelligence deactivated.');
 }
 
 // ── Webview helper ─────────────────────────────────────────────────────────

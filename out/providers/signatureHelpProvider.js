@@ -1,6 +1,6 @@
 "use strict";
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // providers/signatureHelpProvider.ts
 //
 // Implements vscode.SignatureHelpProvider for SCSS/SASS files.

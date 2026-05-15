@@ -1,5 +1,5 @@
 // =============================================================================
-// Mastors CDN Core IntelliSense
+// Mastors CDN Core intelligence
 // providers/hoverProvider.ts
 //
 // Implements vscode.HoverProvider for SCSS/SASS files.
