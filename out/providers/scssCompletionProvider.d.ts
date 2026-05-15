@@ -4,6 +4,7 @@ export declare class ScssCompletionProvider implements vscode.CompletionItemProv
     private _registry;
     constructor(_registry: MastorsRegistry);
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, _token: vscode.CancellationToken, _context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionList>;
+    private _placeholderCompletions;
     private _functionCompletions;
     private _toCompletionItem;
     private _defaultSnippet;

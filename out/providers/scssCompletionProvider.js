@@ -68,12 +68,14 @@ const CATEGORY_ICON = {
     effect: 'symbol-constructor',
     utility: 'symbol-misc',
     map: 'symbol-array',
+    placeholder: 'symbol-class',
 };
 // Category sort order (lower = first)
 const CATEGORY_ORDER = {
     color: 0, shadow: 1, radius: 2, 'z-index': 3, opacity: 4,
     breakpoint: 5, motion: 6, border: 7, typography: 8, layout: 9,
     responsive: 10, effect: 11, utility: 12, math: 13, map: 14,
+    placeholder: 15,
 };
 class ScssCompletionProvider {
     constructor(_registry) {
@@ -115,7 +117,35 @@ class ScssCompletionProvider {
             const replaceRange = new vscode.Range(position.line, replaceStart, position.line, position.character);
             return this._functionCompletions(partial, alias, fuzzy, position, replaceRange, 'mixin');
         }
+        // ── Case 4: @extend %mastors — placeholder completions ─────────────────
+        const extendMatch = prefix.match(/@extend\s+%([\w-]*)$/);
+        if (extendMatch) {
+            const partial = extendMatch[1];
+            return this._placeholderCompletions(partial, position);
+        }
         return undefined;
+    }
+    // ── Placeholder (@extend) completions ────────────────────────────────────
+    _placeholderCompletions(partial, position) {
+        const entries = this._registry
+            .getAllEntries()
+            .filter((e) => e.category === 'placeholder');
+        const matched = partial.length > 0
+            ? entries.filter((e) => e.name.startsWith(partial))
+            : entries;
+        const replaceStart = position.character - partial.length;
+        const replaceRange = new vscode.Range(position.line, replaceStart, position.line, position.character);
+        const items = matched.map((entry, idx) => {
+            const item = new vscode.CompletionItem(`%${entry.name}`, vscode.CompletionItemKind.Class);
+            item.insertText = entry.name;
+            item.range = replaceRange;
+            item.filterText = entry.name;
+            item.detail = 'placeholder';
+            item.sortText = String(idx).padStart(4, '0');
+            item.documentation = this._buildMarkdownDoc(entry);
+            return item;
+        });
+        return new vscode.CompletionList(items, false);
     }
     // ── Function / Mixin completions ─────────────────────────────────────────
     _functionCompletions(partial, alias, fuzzy, position, replaceRange, typeFilter) {

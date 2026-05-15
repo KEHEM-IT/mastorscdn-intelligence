@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 export type EntryType = 'function' | 'mixin' | 'variable';
-export type Category = 'color' | 'shadow' | 'radius' | 'z-index' | 'opacity' | 'breakpoint' | 'motion' | 'border' | 'math' | 'layout' | 'responsive' | 'typography' | 'effect' | 'utility' | 'map';
+export type Category = 'color' | 'shadow' | 'radius' | 'z-index' | 'opacity' | 'breakpoint' | 'motion' | 'border' | 'math' | 'layout' | 'responsive' | 'typography' | 'effect' | 'utility' | 'map' | 'placeholder';
 export interface ParamDef {
     name: string;
     type?: string;

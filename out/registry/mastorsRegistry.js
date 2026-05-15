@@ -1010,5 +1010,99 @@ exports.BUILT_IN_REGISTRY = [
         example: '@include mc.generate-all-vars-if-enabled;',
         snippet: 'generate-all-vars-if-enabled',
     },
+    // ===========================================================================
+    // PLACEHOLDERS  (scss/abstracts/_placeholders.scss)
+    // Silent classes — used with @extend
+    // ===========================================================================
+    // %mastors-clearfix
+    {
+        name: 'mastors-clearfix',
+        type: 'variable',
+        category: 'placeholder',
+        description: 'Clearfix placeholder. Adds an ::after pseudo-element with display: table and clear: both to contain floated children.',
+        params: [],
+        example: '.my-container { @extend %mastors-clearfix; }',
+        snippet: 'mastors-clearfix',
+    },
+    // %mastors-visually-hidden
+    {
+        name: 'mastors-visually-hidden',
+        type: 'variable',
+        category: 'placeholder',
+        description: 'Visually hidden placeholder (SR-only). Hides an element from sighted users while keeping it accessible to screen readers. Equivalent to the visually-hidden mixin but as an extend-only selector.',
+        params: [],
+        example: '.sr-label { @extend %mastors-visually-hidden; }',
+        snippet: 'mastors-visually-hidden',
+    },
+    // %mastors-cover
+    {
+        name: 'mastors-cover',
+        type: 'variable',
+        category: 'placeholder',
+        description: 'Cover layer placeholder. Sets position: absolute; inset: 0; width: 100%; height: 100% to fill the nearest positioned ancestor.',
+        params: [],
+        example: '.overlay { @extend %mastors-cover; }',
+        snippet: 'mastors-cover',
+    },
+    // %mastors-flex-center
+    {
+        name: 'mastors-flex-center',
+        type: 'variable',
+        category: 'placeholder',
+        description: 'Flex center placeholder. Sets display: flex; align-items: center; justify-content: center. Equivalent to the flex-center mixin but as an extend-only selector.',
+        params: [],
+        example: '.card-icon { @extend %mastors-flex-center; }',
+        snippet: 'mastors-flex-center',
+    },
+    // %mastors-absolute-center
+    {
+        name: 'mastors-absolute-center',
+        type: 'variable',
+        category: 'placeholder',
+        description: 'Absolute center placeholder. Positions an element dead-center in its nearest positioned ancestor via position: absolute; top/left: 50%; transform: translate(-50%, -50%).',
+        params: [],
+        example: '.spinner { @extend %mastors-absolute-center; }',
+        snippet: 'mastors-absolute-center',
+    },
+    // %mastors-truncate
+    {
+        name: 'mastors-truncate',
+        type: 'variable',
+        category: 'placeholder',
+        description: 'Truncate placeholder. Applies overflow: hidden; text-overflow: ellipsis; white-space: nowrap for single-line text truncation. Equivalent to the truncate mixin but as an extend-only selector.',
+        params: [],
+        example: '.card-title { @extend %mastors-truncate; }',
+        snippet: 'mastors-truncate',
+    },
+    // %mastors-reset-button
+    {
+        name: 'mastors-reset-button',
+        type: 'variable',
+        category: 'placeholder',
+        description: 'Reset button placeholder. Strips all default browser button styles: removes padding, margin, border, background, sets cursor: pointer, and resets font and appearance.',
+        params: [],
+        example: 'button.custom { @extend %mastors-reset-button; }',
+        snippet: 'mastors-reset-button',
+    },
+    // %mastors-reset-list
+    {
+        name: 'mastors-reset-list',
+        type: 'variable',
+        category: 'placeholder',
+        description: 'Reset list placeholder. Removes list-style, margin, and padding from ul/ol elements.',
+        params: [],
+        example: 'ul.nav { @extend %mastors-reset-list; }',
+        snippet: 'mastors-reset-list',
+    },
+    // %mastors-reset-input
+    {
+        name: 'mastors-reset-input',
+        type: 'variable',
+        category: 'placeholder',
+        description: 'Reset input placeholder. Strips default browser input styles: removes border, padding, margin, background, and outline; resets font and -webkit-appearance.',
+        params: [],
+        example: 'input.custom { @extend %mastors-reset-input; }',
+        snippet: 'mastors-reset-input',
+    },
 ];
 //# sourceMappingURL=mastorsRegistry.js.map

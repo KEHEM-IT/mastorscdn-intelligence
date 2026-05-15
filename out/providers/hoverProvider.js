@@ -65,6 +65,7 @@ const CATEGORY_ICON = {
     effect: 'symbol-constructor',
     utility: 'symbol-misc',
     map: 'symbol-array',
+    placeholder: 'symbol-class',
 };
 class HoverProvider {
     constructor(_registry) {
@@ -78,8 +79,23 @@ class HoverProvider {
         // ── 1. Try to find "alias.fnName" under cursor ────────────────────────
         // Walk left/right from cursor to extract the token
         const wordRange = this._getWordRangeAtPosition(lineText, charPos, alias);
-        if (!wordRange)
+        if (!wordRange) {
+            // 1b. Try @extend %mastors-placeholder hover
+            const extendMatch = lineText.match(/@extend\s+%(mastors-[\w-]+)/);
+            if (extendMatch) {
+                const pctIdx = lineText.indexOf('%' + extendMatch[1]);
+                const nameStart = pctIdx + 1;
+                const nameEnd = nameStart + extendMatch[1].length;
+                if (charPos >= pctIdx && charPos <= nameEnd) {
+                    const entry = this._registry.get(extendMatch[1]);
+                    if (entry) {
+                        const vsRange = new vscode.Range(position.line, pctIdx, position.line, nameEnd);
+                        return new vscode.Hover(this._buildHoverContent(entry, alias, undefined), vsRange);
+                    }
+                }
+            }
             return undefined;
+        }
         const { fnName, range } = wordRange;
         const entry = this._registry.get(fnName);
         if (!entry)
