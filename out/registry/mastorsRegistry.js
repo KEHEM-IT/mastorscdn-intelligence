@@ -227,11 +227,9 @@ class MastorsRegistry {
         return null;
     }
     _cachePath() {
-        const workspaceFolders = vscode.workspace.workspaceFolders;
-        if (!workspaceFolders || workspaceFolders.length === 0) {
-            return path.join(this._context.globalStorageUri.fsPath, CACHE_FILE);
-        }
-        return path.join(workspaceFolders[0].uri.fsPath, CACHE_FILE);
+        // Always store cache in the extension's global storage directory (~/.vscode/...
+        // extensions/<id>/globalStorage/) — never in the user's workspace/project folder.
+        return path.join(this._context.globalStorageUri.fsPath, CACHE_FILE);
     }
     async _loadCache() {
         const cachePath = this._cachePath();
