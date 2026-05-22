@@ -366,21 +366,45 @@ export const BUILT_IN_REGISTRY: RegistryEntry[] = [
       { name: 'fallback', type: 'Color|null', default: 'null', description: 'Fallback if key not found' },
     ],
     values: [
-      'primary', 'primary-light', 'primary-dark',
-      'secondary', 'secondary-light', 'secondary-dark',
-      'accent', 'accent-light', 'accent-dark',
-      'success', 'success-light', 'success-dark',
-      'warning', 'warning-light', 'warning-dark',
-      'danger', 'danger-light', 'danger-dark',
-      'info', 'info-light', 'info-dark',
+      // Brand
+      'primary', 'primary-50', 'primary-100', 'primary-200', 'primary-300', 'primary-400', 'primary-500', 'primary-600', 'primary-700', 'primary-800', 'primary-900', 'primary-950', 'primary-light', 'primary-dark',
+      'secondary', 'secondary-50', 'secondary-100', 'secondary-200', 'secondary-300', 'secondary-400', 'secondary-500', 'secondary-600', 'secondary-700', 'secondary-800', 'secondary-900', 'secondary-950', 'secondary-light', 'secondary-dark',
+      'accent', 'accent-50', 'accent-100', 'accent-200', 'accent-300', 'accent-400', 'accent-500', 'accent-600', 'accent-700', 'accent-800', 'accent-900', 'accent-950', 'accent-light', 'accent-dark',
+      // Status
+      'success', 'success-50', 'success-100', 'success-200', 'success-300', 'success-400', 'success-500', 'success-600', 'success-700', 'success-800', 'success-900', 'success-950', 'success-light', 'success-dark',
+      'warning', 'warning-50', 'warning-100', 'warning-200', 'warning-300', 'warning-400', 'warning-500', 'warning-600', 'warning-700', 'warning-800', 'warning-900', 'warning-950', 'warning-light', 'warning-dark',
+      'danger', 'danger-50', 'danger-100', 'danger-200', 'danger-300', 'danger-400', 'danger-500', 'danger-600', 'danger-700', 'danger-800', 'danger-900', 'danger-950', 'danger-light', 'danger-dark',
+      'info', 'info-50', 'info-100', 'info-200', 'info-300', 'info-400', 'info-500', 'info-600', 'info-700', 'info-800', 'info-900', 'info-950', 'info-light', 'info-dark',
+      // Extended palettes
+      'rose-50', 'rose-100', 'rose-200', 'rose-300', 'rose-400', 'rose-500', 'rose-600', 'rose-700', 'rose-800', 'rose-900', 'rose-950',
+      'pink-50', 'pink-100', 'pink-200', 'pink-300', 'pink-400', 'pink-500', 'pink-600', 'pink-700', 'pink-800', 'pink-900', 'pink-950',
+      'fuchsia-50', 'fuchsia-100', 'fuchsia-200', 'fuchsia-300', 'fuchsia-400', 'fuchsia-500', 'fuchsia-600', 'fuchsia-700', 'fuchsia-800', 'fuchsia-900', 'fuchsia-950',
+      'purple-50', 'purple-100', 'purple-200', 'purple-300', 'purple-400', 'purple-500', 'purple-600', 'purple-700', 'purple-800', 'purple-900', 'purple-950',
+      'indigo-50', 'indigo-100', 'indigo-200', 'indigo-300', 'indigo-400', 'indigo-500', 'indigo-600', 'indigo-700', 'indigo-800', 'indigo-900', 'indigo-950',
+      'teal-50', 'teal-100', 'teal-200', 'teal-300', 'teal-400', 'teal-500', 'teal-600', 'teal-700', 'teal-800', 'teal-900', 'teal-950',
+      'emerald-50', 'emerald-100', 'emerald-200', 'emerald-300', 'emerald-400', 'emerald-500', 'emerald-600', 'emerald-700', 'emerald-800', 'emerald-900', 'emerald-950',
+      'lime-50', 'lime-100', 'lime-200', 'lime-300', 'lime-400', 'lime-500', 'lime-600', 'lime-700', 'lime-800', 'lime-900', 'lime-950',
+      'yellow-50', 'yellow-100', 'yellow-200', 'yellow-300', 'yellow-400', 'yellow-500', 'yellow-600', 'yellow-700', 'yellow-800', 'yellow-900', 'yellow-950',
+      'orange-50', 'orange-100', 'orange-200', 'orange-300', 'orange-400', 'orange-500', 'orange-600', 'orange-700', 'orange-800', 'orange-900', 'orange-950',
+      'stone-50', 'stone-100', 'stone-200', 'stone-300', 'stone-400', 'stone-500', 'stone-600', 'stone-700', 'stone-800', 'stone-900', 'stone-950',
+      'zinc-50', 'zinc-100', 'zinc-200', 'zinc-300', 'zinc-400', 'zinc-500', 'zinc-600', 'zinc-700', 'zinc-800', 'zinc-900', 'zinc-950',
+      'slate-50', 'slate-100', 'slate-200', 'slate-300', 'slate-400', 'slate-500', 'slate-600', 'slate-700', 'slate-800', 'slate-900', 'slate-950',
+      // Neutrals
       'white', 'black', 'transparent',
       'neutral-50', 'neutral-100', 'neutral-200', 'neutral-300', 'neutral-400',
       'neutral-500', 'neutral-600', 'neutral-700', 'neutral-800', 'neutral-900', 'neutral-950',
+      // Surface
       'surface', 'surface-raised', 'surface-overlay', 'surface-sunken',
+      'surface-dark', 'surface-dark-raised', 'surface-dark-overlay', 'surface-dark-sunken',
+      // Scrim
+      'scrim-light', 'scrim-dark', 'scrim-heavy',
+      // Chart
+      'chart-1', 'chart-2', 'chart-3', 'chart-4', 'chart-5',
+      'chart-6', 'chart-7', 'chart-8', 'chart-9', 'chart-10',
     ],
     returns: 'Color',
     example: "color: mc.color('primary');\nbackground: mc.color('neutral-100', #f5f5f5);",
-    snippet: "'${1|primary,primary-light,primary-dark,secondary,secondary-light,secondary-dark,accent,accent-light,accent-dark,success,success-light,success-dark,warning,warning-light,warning-dark,danger,danger-light,danger-dark,info,info-light,info-dark,white,black,transparent,neutral-50,neutral-100,neutral-200,neutral-300,neutral-400,neutral-500,neutral-600,neutral-700,neutral-800,neutral-900,neutral-950,surface,surface-raised,surface-overlay,surface-sunken|}'",
+    snippet: "'${1|primary,primary-light,primary-dark,primary-50,primary-100,primary-200,primary-300,primary-400,primary-500,primary-600,primary-700,primary-800,primary-900,primary-950,secondary,secondary-light,secondary-dark,secondary-50,secondary-100,secondary-200,secondary-300,secondary-400,secondary-500,secondary-600,secondary-700,secondary-800,secondary-900,secondary-950,accent,accent-light,accent-dark,accent-50,accent-100,accent-200,accent-300,accent-400,accent-500,accent-600,accent-700,accent-800,accent-900,accent-950,success,success-light,success-dark,success-50,success-100,success-200,success-300,success-400,success-500,success-600,success-700,success-800,success-900,success-950,warning,warning-light,warning-dark,warning-50,warning-100,warning-200,warning-300,warning-400,warning-500,warning-600,warning-700,warning-800,warning-900,warning-950,danger,danger-light,danger-dark,danger-50,danger-100,danger-200,danger-300,danger-400,danger-500,danger-600,danger-700,danger-800,danger-900,danger-950,info,info-light,info-dark,info-50,info-100,info-200,info-300,info-400,info-500,info-600,info-700,info-800,info-900,info-950,white,black,transparent,neutral-50,neutral-100,neutral-200,neutral-300,neutral-400,neutral-500,neutral-600,neutral-700,neutral-800,neutral-900,neutral-950,surface,surface-raised,surface-overlay,surface-sunken,surface-dark,surface-dark-raised,surface-dark-overlay,surface-dark-sunken,scrim-light,scrim-dark,scrim-heavy,chart-1,chart-2,chart-3,chart-4,chart-5,chart-6,chart-7,chart-8,chart-9,chart-10,rose-50,rose-100,rose-200,rose-300,rose-400,rose-500,rose-600,rose-700,rose-800,rose-900,rose-950,pink-50,pink-100,pink-200,pink-300,pink-400,pink-500,pink-600,pink-700,pink-800,pink-900,pink-950,fuchsia-50,fuchsia-100,fuchsia-200,fuchsia-300,fuchsia-400,fuchsia-500,fuchsia-600,fuchsia-700,fuchsia-800,fuchsia-900,fuchsia-950,purple-50,purple-100,purple-200,purple-300,purple-400,purple-500,purple-600,purple-700,purple-800,purple-900,purple-950,indigo-50,indigo-100,indigo-200,indigo-300,indigo-400,indigo-500,indigo-600,indigo-700,indigo-800,indigo-900,indigo-950,teal-50,teal-100,teal-200,teal-300,teal-400,teal-500,teal-600,teal-700,teal-800,teal-900,teal-950,emerald-50,emerald-100,emerald-200,emerald-300,emerald-400,emerald-500,emerald-600,emerald-700,emerald-800,emerald-900,emerald-950,lime-50,lime-100,lime-200,lime-300,lime-400,lime-500,lime-600,lime-700,lime-800,lime-900,lime-950,yellow-50,yellow-100,yellow-200,yellow-300,yellow-400,yellow-500,yellow-600,yellow-700,yellow-800,yellow-900,yellow-950,orange-50,orange-100,orange-200,orange-300,orange-400,orange-500,orange-600,orange-700,orange-800,orange-900,orange-950,stone-50,stone-100,stone-200,stone-300,stone-400,stone-500,stone-600,stone-700,stone-800,stone-900,stone-950,zinc-50,zinc-100,zinc-200,zinc-300,zinc-400,zinc-500,zinc-600,zinc-700,zinc-800,zinc-900,zinc-950,slate-50,slate-100,slate-200,slate-300,slate-400,slate-500,slate-600,slate-700,slate-800,slate-900,slate-950|}'",
   },
 
   // semantic($key, $fallback)
@@ -395,14 +419,31 @@ export const BUILT_IN_REGISTRY: RegistryEntry[] = [
       { name: 'fallback', type: 'Color|null', default: 'null', description: 'Fallback if key not found' },
     ],
     values: [
-      'text-primary', 'text-secondary', 'text-muted', 'text-disabled', 'text-inverse',
+      // Text
+      'text-primary', 'text-secondary', 'text-muted', 'text-disabled', 'text-placeholder', 'text-inverse',
+      'text-on-primary', 'text-on-secondary', 'text-on-accent',
+      'text-on-success', 'text-on-warning', 'text-on-danger', 'text-on-info',
+      'text-code', 'text-heading',
+      // Background
       'bg-body', 'bg-subtle', 'bg-muted', 'bg-inverse',
-      'border-default', 'border-strong', 'border-focus',
-      'link', 'link-hover', 'link-visited',
+      'bg-primary', 'bg-primary-subtle',
+      'bg-secondary', 'bg-secondary-subtle',
+      'bg-success', 'bg-success-subtle',
+      'bg-warning', 'bg-warning-subtle',
+      'bg-danger', 'bg-danger-subtle',
+      'bg-info', 'bg-info-subtle',
+      // Border
+      'border-default', 'border-strong', 'border-subtle', 'border-focus',
+      'border-primary', 'border-success', 'border-warning', 'border-danger', 'border-info',
+      // Link
+      'link', 'link-hover', 'link-visited', 'link-active',
+      // Interactive
+      'ring-focus', 'ring-danger', 'ring-success',
+      'overlay-light', 'overlay-dark',
     ],
     returns: 'Color',
     example: "color: mc.semantic('text-primary');\nborder-color: mc.semantic('border-focus');",
-    snippet: "'${1|text-primary,text-secondary,text-muted,text-disabled,text-inverse,bg-body,bg-subtle,bg-muted,bg-inverse,border-default,border-strong,border-focus,link,link-hover,link-visited|}'",
+    snippet: "'${1|text-primary,text-secondary,text-muted,text-disabled,text-placeholder,text-inverse,text-on-primary,text-on-secondary,text-on-accent,text-on-success,text-on-warning,text-on-danger,text-on-info,text-code,text-heading,bg-body,bg-subtle,bg-muted,bg-inverse,bg-primary,bg-primary-subtle,bg-secondary,bg-secondary-subtle,bg-success,bg-success-subtle,bg-warning,bg-warning-subtle,bg-danger,bg-danger-subtle,bg-info,bg-info-subtle,border-default,border-strong,border-subtle,border-focus,border-primary,border-success,border-warning,border-danger,border-info,link,link-hover,link-visited,link-active,ring-focus,ring-danger,ring-success,overlay-light,overlay-dark|}'",
   },
 
   // shadow($key, $fallback)
@@ -1233,5 +1274,24 @@ export const BUILT_IN_REGISTRY: RegistryEntry[] = [
     params: [],
     example: 'input.custom { @extend %mastors-reset-input; }',
     snippet: 'mastors-reset-input',
+  },
+
+  // ===========================================================================
+  // MIXINS -- Container  (scss/mixins/_helpers.scss)
+  // ===========================================================================
+
+  // container($size, $center)
+  {
+    name: 'container',
+    type: 'mixin',
+    category: 'layout',
+    description: 'Sets max-width from the $mastors-containers token map and optionally centres the element with margin-inline: auto.',
+    params: [
+      { name: 'size',   type: 'String',  default: "'lg'", description: "Container size key ('xs'..'3xl', 'fluid')" },
+      { name: 'center', type: 'Boolean', default: 'true', description: 'When true, adds margin-inline: auto to centre the container' },
+    ],
+    values: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', 'fluid'],
+    example: "@include mc.container('xl');\n@include mc.container('lg', false);",
+    snippet: "container('${1|xs,sm,md,lg,xl,2xl,3xl,fluid|}')",
   },
 ];
