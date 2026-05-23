@@ -123,7 +123,8 @@
     "watch": "tsc -watch -p ./",
     "lint": "eslint src --ext .ts",
     "package": "vsce package",
-    "generate-registry": "ts-node scripts/generateRegistry.ts"
+    "generate-registry": "ts-node scripts/generateRegistry.ts",
+    "sync-registry": "ts-node scripts/syncFromCore.ts"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
